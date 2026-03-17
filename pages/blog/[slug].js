@@ -1,9 +1,7 @@
 import Layout from '../../components/Layout'
 import AdSlot from '../../components/AdSlot'
-import { MDXRemote } from 'next-mdx-remote'
-import { serialize } from 'next-mdx-remote/serialize'
-import { getAllPosts, getPostBySlug } from '../../lib/posts'
 import Link from 'next/link'
+import { getAllPosts, getPostBySlug } from '../../lib/posts'
 
 const categoryColors = {
   'ai-news': 'badge-ai',
@@ -13,19 +11,21 @@ const categoryColors = {
   'make-money': 'badge-money',
 }
 
-export default function BlogPost({ post, mdxSource }) {
+export default function BlogPost({ post, content }) {
   const cat = post.category?.toLowerCase().replace(' ', '-') || 'tech'
   const badge = categoryColors[cat] || 'badge-tech'
 
   return (
-    <Layout title={post.title} description={post.excerpt} canonical={`https://thetechgenai.com/blog/${post.slug}`}>
+    <Layout
+      title={post.title}
+      description={post.excerpt}
+      canonical={`https://thetechgenai.com/blog/${post.slug}`}
+    >
       <article style={{ maxWidth: '780px', margin: '0 auto', padding: '3rem 1.5rem' }}>
-        {/* Back */}
         <Link href="/blog" style={{ color: '#64748b', textDecoration: 'none', fontSize: '0.9rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem' }}>
           ← Back to all posts
         </Link>
 
-        {/* Header */}
         <div style={{ marginBottom: '2.5rem' }}>
           <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap' }}>
             <span className={badge} style={{ padding: '0.25rem 0.75rem', borderRadius: '4px', fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase' }}>
@@ -47,25 +47,22 @@ export default function BlogPost({ post, mdxSource }) {
           )}
         </div>
 
-        {/* Featured image */}
         {post.image && (
           <div style={{ marginBottom: '2.5rem', borderRadius: '12px', overflow: 'hidden' }}>
             <img src={post.image} alt={post.title} style={{ width: '100%', height: '400px', objectFit: 'cover' }} />
           </div>
         )}
 
-        {/* Ad before content */}
         <AdSlot slot="horizontal" />
 
-        {/* Content */}
-        <div className="article-content" style={{ marginTop: '2rem' }}>
-          <MDXRemote {...mdxSource} />
-        </div>
+        <div
+          className="article-content"
+          style={{ marginTop: '2rem' }}
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
 
-        {/* Ad after content */}
         <AdSlot slot="horizontal" />
 
-        {/* Tags */}
         {post.tags && (
           <div style={{ marginTop: '2rem', paddingTop: '1.5rem', borderTop: '1px solid #1e2a38' }}>
             <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
@@ -78,7 +75,6 @@ export default function BlogPost({ post, mdxSource }) {
           </div>
         )}
 
-        {/* Back to blog */}
         <div style={{ marginTop: '3rem', textAlign: 'center' }}>
           <Link href="/blog" style={{ padding: '0.75rem 2rem', background: 'linear-gradient(135deg, #0ea5e9, #0284c7)', borderRadius: '8px', color: 'white', fontWeight: 600, textDecoration: 'none' }}>
             ← More Posts
@@ -91,8 +87,26 @@ export default function BlogPost({ post, mdxSource }) {
 
 export async function getStaticProps({ params }) {
   const post = getPostBySlug(params.slug)
-  const mdxSource = await serialize(post.content)
-  return { props: { post, mdxSource } }
+  const { remark } = await import('remark')
+  const remarkHtml = await import('remark-html')
+  const processedContent = await remark()
+    .use(remarkHtml.default)
+    .process(post.content || '')
+  return {
+    props: {
+      post: {
+  slug: post.slug || null,
+  title: post.title || null,
+  excerpt: post.excerpt || null,
+  date: post.date || null,
+  category: post.category || null,
+  tags: post.tags || null,
+  image: post.image || null,
+  readingTime: post.readingTime || null,
+},
+      content: processedContent.toString(),
+    }
+  }
 }
 
 export async function getStaticPaths() {
