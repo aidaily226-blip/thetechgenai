@@ -29,13 +29,29 @@ export default function Layout({ children, title, description, canonical }) {
         {/* Canonical */}
         {canonical && <link rel="canonical" href={canonical} />}
         
-        {/* Favicon */}
-        <link rel="icon" href="/favicon.ico" />
-        
-        {/* 
-          ADD YOUR ADSENSE SCRIPT HERE AFTER APPROVAL:
-          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossOrigin="anonymous"></script>
-        */}
+      {/* Favicon */}
+<link rel="icon" href="/favicon.ico" />
+
+{/* Google Analytics */}
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-WQZQF5LX5K"
+/>
+<script
+  dangerouslySetInnerHTML={{
+    __html: `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    `,
+  }}
+/>
+
+{/* 
+  ADD YOUR ADSENSE SCRIPT HERE AFTER APPROVAL:
+  ...
+*/}
       </Head>
       <Navbar />
       <main>{children}</main>
