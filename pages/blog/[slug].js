@@ -1,5 +1,6 @@
 import Layout from '../../components/Layout'
 import AdSlot from '../../components/AdSlot'
+import RelatedPosts from '../../components/RelatedPosts'
 import Link from 'next/link'
 import { getAllPosts, getPostBySlug } from '../../lib/posts'
 
@@ -11,7 +12,7 @@ const categoryColors = {
   'make-money': 'badge-money',
 }
 
-export default function BlogPost({ post, content }) {
+export default function BlogPost({ post, content, allPosts }) {
   const cat = post.category?.toLowerCase().replace(' ', '-') || 'tech'
   const badge = categoryColors[cat] || 'badge-tech'
 
@@ -22,10 +23,12 @@ export default function BlogPost({ post, content }) {
       canonical={`https://thetechgenai.com/blog/${post.slug}`}
     >
       <article style={{ maxWidth: '780px', margin: '0 auto', padding: '3rem 1.5rem' }}>
+        {/* Back Button */}
         <Link href="/blog" style={{ color: '#64748b', textDecoration: 'none', fontSize: '0.9rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem' }}>
           ← Back to all posts
         </Link>
 
+        {/* Post Header */}
         <div style={{ marginBottom: '2.5rem' }}>
           <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap' }}>
             <span className={badge} style={{ padding: '0.25rem 0.75rem', borderRadius: '4px', fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase' }}>
@@ -47,22 +50,27 @@ export default function BlogPost({ post, content }) {
           )}
         </div>
 
+        {/* Featured Image */}
         {post.image && (
           <div style={{ marginBottom: '2.5rem', borderRadius: '12px', overflow: 'hidden' }}>
             <img src={post.image} alt={post.title} style={{ width: '100%', height: '400px', objectFit: 'cover' }} />
           </div>
         )}
 
+        {/* Ad before content */}
         <AdSlot slot="horizontal" />
 
+        {/* Article Content */}
         <div
           className="article-content"
           style={{ marginTop: '2rem' }}
           dangerouslySetInnerHTML={{ __html: content }}
         />
 
+        {/* Ad after content */}
         <AdSlot slot="horizontal" />
 
+        {/* Tags */}
         {post.tags && (
           <div style={{ marginTop: '2rem', paddingTop: '1.5rem', borderTop: '1px solid #1e2a38' }}>
             <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
@@ -75,7 +83,15 @@ export default function BlogPost({ post, content }) {
           </div>
         )}
 
-        <div style={{ marginTop: '3rem', textAlign: 'center' }}>
+        {/* Related Posts Section */}
+        <RelatedPosts
+          currentSlug={post.slug}
+          currentCategory={post.category}
+          allPosts={allPosts}
+        />
+
+        {/* Back to Blog */}
+        <div style={{ marginTop: '2rem', textAlign: 'center' }}>
           <Link href="/blog" style={{ padding: '0.75rem 2rem', background: 'linear-gradient(135deg, #0ea5e9, #0284c7)', borderRadius: '8px', color: 'white', fontWeight: 600, textDecoration: 'none' }}>
             ← More Posts
           </Link>
@@ -87,24 +103,36 @@ export default function BlogPost({ post, content }) {
 
 export async function getStaticProps({ params }) {
   const post = getPostBySlug(params.slug)
+  const allPosts = getAllPosts()
+
   const { remark } = await import('remark')
   const remarkHtml = await import('remark-html')
   const processedContent = await remark()
     .use(remarkHtml.default)
     .process(post.content || '')
+
   return {
     props: {
       post: {
-  slug: post.slug || null,
-  title: post.title || null,
-  excerpt: post.excerpt || null,
-  date: post.date || null,
-  category: post.category || null,
-  tags: post.tags || null,
-  image: post.image || null,
-  readingTime: post.readingTime || null,
-},
+        slug: post.slug || null,
+        title: post.title || null,
+        excerpt: post.excerpt || null,
+        date: post.date || null,
+        category: post.category || null,
+        tags: post.tags || null,
+        image: post.image || null,
+        readingTime: post.readingTime || null,
+      },
       content: processedContent.toString(),
+      allPosts: allPosts.map(p => ({
+        slug: p.slug || null,
+        title: p.title || null,
+        excerpt: p.excerpt || null,
+        date: p.date || null,
+        category: p.category || null,
+        image: p.image || null,
+        readingTime: p.readingTime || null,
+      })),
     }
   }
 }
