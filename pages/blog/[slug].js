@@ -105,11 +105,13 @@ export async function getStaticProps({ params }) {
   const post = getPostBySlug(params.slug)
   const allPosts = getAllPosts()
 
-  const { remark } = await import('remark')
-  const remarkHtml = await import('remark-html')
-  const processedContent = await remark()
-    .use(remarkHtml.default)
-    .process(post.content || '')
+const { remark } = await import('remark')
+const remarkHtml = await import('remark-html')
+const remarkGfm = await import('remark-gfm')
+const processedContent = await remark()
+  .use(remarkGfm.default)
+  .use(remarkHtml.default)
+  .process(post.content || '')
 
   return {
     props: {
