@@ -23,12 +23,10 @@ export default function BlogPost({ post, content, allPosts }) {
       canonical={`https://thetechgenai.com/blog/${post.slug}`}
     >
       <article style={{ maxWidth: '780px', margin: '0 auto', padding: '3rem 1.5rem' }}>
-        {/* Back Button */}
         <Link href="/blog" style={{ color: '#64748b', textDecoration: 'none', fontSize: '0.9rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem' }}>
           ← Back to all posts
         </Link>
 
-        {/* Post Header */}
         <div style={{ marginBottom: '2.5rem' }}>
           <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap' }}>
             <span className={badge} style={{ padding: '0.25rem 0.75rem', borderRadius: '4px', fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase' }}>
@@ -50,27 +48,22 @@ export default function BlogPost({ post, content, allPosts }) {
           )}
         </div>
 
-        {/* Featured Image */}
         {post.image && (
           <div style={{ marginBottom: '2.5rem', borderRadius: '12px', overflow: 'hidden' }}>
             <img src={post.image} alt={post.title} style={{ width: '100%', height: '400px', objectFit: 'cover' }} />
           </div>
         )}
 
-        {/* Ad before content */}
         <AdSlot slot="horizontal" />
 
-        {/* Article Content */}
         <div
           className="article-content"
           style={{ marginTop: '2rem' }}
           dangerouslySetInnerHTML={{ __html: content }}
         />
 
-        {/* Ad after content */}
         <AdSlot slot="horizontal" />
 
-        {/* Tags */}
         {post.tags && (
           <div style={{ marginTop: '2rem', paddingTop: '1.5rem', borderTop: '1px solid #1e2a38' }}>
             <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
@@ -83,14 +76,12 @@ export default function BlogPost({ post, content, allPosts }) {
           </div>
         )}
 
-        {/* Related Posts Section */}
         <RelatedPosts
           currentSlug={post.slug}
           currentCategory={post.category}
           allPosts={allPosts}
         />
 
-        {/* Back to Blog */}
         <div style={{ marginTop: '2rem', textAlign: 'center' }}>
           <Link href="/blog" style={{ padding: '0.75rem 2rem', background: 'linear-gradient(135deg, #0ea5e9, #0284c7)', borderRadius: '8px', color: 'white', fontWeight: 600, textDecoration: 'none' }}>
             ← More Posts
@@ -105,13 +96,18 @@ export async function getStaticProps({ params }) {
   const post = getPostBySlug(params.slug)
   const allPosts = getAllPosts()
 
-const { remark } = await import('remark')
-const remarkHtml = await import('remark-html')
-const remarkGfm = await import('remark-gfm')
-const processedContent = await remark()
-  .use(remarkGfm.default)
-  .use(remarkHtml.default)
-  .process(post.content || '')
+  const { unified } = await import('unified')
+  const remarkParse = await import('remark-parse')
+  const remarkGfm = await import('remark-gfm')
+  const remarkRehype = await import('remark-rehype')
+  const rehypeStringify = await import('rehype-stringify')
+
+  const processedContent = await unified()
+    .use(remarkParse.default)
+    .use(remarkGfm.default)
+    .use(remarkRehype.default)
+    .use(rehypeStringify.default)
+    .process(post.content || '')
 
   return {
     props: {
