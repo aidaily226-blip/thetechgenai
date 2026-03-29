@@ -43,7 +43,7 @@ export default function Layout({ children, title, description, canonical }) {
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
+      gtag('config', 'G-WQZQF5LX5K');
     `,
   }}
 />
