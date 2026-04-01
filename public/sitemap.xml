@@ -180,4 +180,10 @@
   <changefreq>weekly</changefreq>
   <priority>1.0</priority>
 </url>
+<url>
+  <loc>https://thetechgenai.com/blog/why-ai-companies-losing-money-openai-chatgpt-debt-2026/</loc>
+  <lastmod>2026-04-01</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.9</priority>
+</url>
 </urlset>
