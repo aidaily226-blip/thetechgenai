@@ -29,30 +29,34 @@ export default function Layout({ children, title, description, canonical }) {
         {/* Canonical */}
         {canonical && <link rel="canonical" href={canonical} />}
         
-      {/* Favicon */}
-<link rel="icon" href="/favicon.ico" />
+        {/* Favicon */}
+        <link rel="icon" href="/favicon.ico" />
 
-{/* Google Analytics */}
-<script
-  async
-  src="https://www.googletagmanager.com/gtag/js?id=G-WQZQF5LX5K"
-/>
-<script
-  dangerouslySetInnerHTML={{
-    __html: `
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-WQZQF5LX5K');
-    `,
-  }}
-/>
+        {/* Google Analytics */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-WQZQF5LX5K"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-WQZQF5LX5K');
+            `,
+          }}
+        />
 
-{/* 
-  ADD YOUR ADSENSE SCRIPT HERE AFTER APPROVAL:
-  ...
-*/}
+        {/* Google AdSense */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4015737630275883"
+          crossOrigin="anonymous"
+        />
+
       </Head>
+
       <Navbar />
       <main>{children}</main>
       <Footer />
