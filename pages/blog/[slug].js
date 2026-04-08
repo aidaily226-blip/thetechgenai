@@ -1,5 +1,4 @@
 import Layout from '../../components/Layout'
-import AdSlot from '../../components/AdSlot'
 import RelatedPosts from '../../components/RelatedPosts'
 import Link from 'next/link'
 import { getAllPosts, getPostBySlug } from '../../lib/posts'
@@ -54,15 +53,11 @@ export default function BlogPost({ post, content, allPosts }) {
           </div>
         )}
 
-        <AdSlot slot="horizontal" />
-
         <div
           className="article-content"
           style={{ marginTop: '2rem' }}
           dangerouslySetInnerHTML={{ __html: content }}
         />
-
-        <AdSlot slot="horizontal" />
 
         {post.tags && (
           <div style={{ marginTop: '2rem', paddingTop: '1.5rem', borderTop: '1px solid #1e2a38' }}>
