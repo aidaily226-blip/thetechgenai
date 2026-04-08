@@ -1,6 +1,5 @@
 import Layout from '../components/Layout'
 import PostCard from '../components/PostCard'
-import AdSlot from '../components/AdSlot'
 import Link from 'next/link'
 import { getAllPosts } from '../lib/posts'
 
@@ -57,11 +56,6 @@ export default function Home({ posts }) {
           </Link>
         </div>
       </section>
-
-      {/* Ad Slot */}
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
-        <AdSlot slot="horizontal" />
-      </div>
 
       {/* Categories */}
       <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem 2.5rem' }}>
@@ -152,11 +146,6 @@ export default function Home({ posts }) {
           </div>
         </section>
       )}
-
-      {/* Ad Slot Middle */}
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
-        <AdSlot slot="horizontal" />
-      </div>
 
       {/* More Posts */}
       {morePosts.length > 0 && (
