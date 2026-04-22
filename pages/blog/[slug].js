@@ -16,11 +16,12 @@ export default function BlogPost({ post, content, allPosts }) {
   const badge = categoryColors[cat] || 'badge-tech'
 
   return (
-    <Layout
-      title={post.title}
-      description={post.excerpt}
-      canonical={`https://thetechgenai.com/blog/${post.slug}`}
-    >
+ <Layout
+  title={post.title}
+  description={post.excerpt}
+  canonical={`https://thetechgenai.com/blog/${post.slug}`}
+  image={post.image}
+>
       <article style={{ maxWidth: '780px', margin: '0 auto', padding: '3rem 1.5rem' }}>
         <Link href="/blog" style={{ color: '#64748b', textDecoration: 'none', fontSize: '0.9rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem' }}>
           ← Back to all posts
