@@ -1,160 +1,110 @@
 import Layout from '../components/Layout'
-
-const sections = [
-  {
-    title: 'Information We Collect',
-    color: '#00ff88',
-    content: (
-      <>
-        <p style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: 1.8, marginBottom: '1rem' }}>
-          <span style={{ color: '#94a3b8', fontWeight: 600 }}>Information You Provide:</span> When you contact us via email or our contact form, we may collect your name, email address, and the content of your message.
-        </p>
-        <p style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: 1.8 }}>
-          <span style={{ color: '#94a3b8', fontWeight: 600 }}>Information Collected Automatically:</span> When you visit our site, we automatically collect your IP address, browser type, device type, pages visited, time on site, and general geographic location through cookies and similar technologies.
-        </p>
-      </>
-    ),
-  },
-  {
-    title: 'Cookies and Tracking',
-    color: '#0ea5e9',
-    content: (
-      <>
-        <p style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: 1.8, marginBottom: '1rem' }}>
-          We use three types of cookies on our site:
-        </p>
-        {[
-          { label: 'Essential Cookies', desc: 'Required for the website to function correctly. These cannot be disabled.' },
-          { label: 'Analytics Cookies', desc: 'We use Google Analytics to understand how visitors use our site. Data is anonymous and aggregated.' },
-          { label: 'Advertising Cookies', desc: 'We use Google AdSense to display ads. Google uses cookies to serve ads based on your prior visits to our and other websites.' },
-        ].map((item, i) => (
-          <div key={i} style={{ display: 'flex', gap: '0.75rem', marginBottom: '0.75rem' }}>
-            <span style={{ color: '#0ea5e9', marginTop: '0.1rem' }}>→</span>
-            <p style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: 1.7 }}>
-              <span style={{ color: '#94a3b8', fontWeight: 600 }}>{item.label}:</span> {item.desc}
-            </p>
-          </div>
-        ))}
-        <p style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: 1.8, marginTop: '0.5rem' }}>
-          You may opt out of personalised advertising by visiting{' '}
-          <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" style={{ color: '#0ea5e9' }}>Google's Ads Settings</a>.
-          You can also manage or disable cookies through your browser settings.
-        </p>
-      </>
-    ),
-  },
-  {
-    title: 'Google AdSense & Advertising',
-    color: '#fbbf24',
-    content: (
-      <p style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: 1.8 }}>
-        TheTechGenAI participates in the Google AdSense programme. Google, as a third-party vendor, uses cookies to serve ads on our site based on your visits to our site and other sites on the internet. You may opt out of personalised ads by visiting the{' '}
-        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" style={{ color: '#0ea5e9' }}>Google Privacy Policy</a>.
-        We do not control the content of advertisements and are not responsible for the privacy practices of third-party advertisers.
-      </p>
-    ),
-  },
-  {
-    title: 'How We Use Your Information',
-    color: '#c084fc',
-    content: (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-        {[
-          'Operate and maintain our website',
-          'Improve and personalise your experience',
-          'Analyse how visitors use our site via Google Analytics',
-          'Display relevant advertisements via Google AdSense',
-          'Respond to your inquiries and messages',
-          'Comply with legal obligations',
-        ].map((item, i) => (
-          <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
-            <span style={{ color: '#00ff88' }}>✓</span>
-            <span style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: 1.6 }}>{item}</span>
-          </div>
-        ))}
-      </div>
-    ),
-  },
-  {
-    title: "Children's Privacy",
-    color: '#fb923c',
-    content: (
-      <p style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: 1.8 }}>
-        TheTechGenAI is not directed at children under the age of 13. We do not knowingly collect personal information from children under 13. If you believe we have inadvertently collected such information, please contact us immediately at{' '}
-        <a href="mailto:contact@thetechgenai.com" style={{ color: '#0ea5e9' }}>contact@thetechgenai.com</a>{' '}
-        and we will delete it promptly.
-      </p>
-    ),
-  },
-  {
-    title: 'Your Rights',
-    color: '#38bdf8',
-    content: (
-      <>
-        <p style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: 1.8, marginBottom: '0.75rem' }}>
-          Depending on your location, you may have the right to access, correct, or delete your personal data, object to how we process it, or opt out of personalised ads.
-        </p>
-        <p style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: 1.8 }}>
-          To exercise any of these rights, contact us at{' '}
-          <a href="mailto:contact@thetechgenai.com" style={{ color: '#0ea5e9' }}>contact@thetechgenai.com</a>.
-        </p>
-      </>
-    ),
-  },
-  {
-    title: 'Changes to This Policy',
-    color: '#00ff88',
-    content: (
-      <p style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: 1.8 }}>
-        We may update this Privacy Policy from time to time. When we do, we will update the "Last Updated" date at the top of this page. Continued use of our website after any changes constitutes your acceptance of the updated policy.
-      </p>
-    ),
-  },
-]
+import Link from 'next/link'
 
 export default function PrivacyPolicy() {
   return (
-    <Layout>
-      {/* Hero */}
-      <section style={{ maxWidth: '800px', margin: '0 auto', padding: '3rem 1.5rem 2rem', position: 'relative' }}>
-        <div style={{ position: 'absolute', top: '20%', left: '50%', transform: 'translateX(-50%)', width: '600px', height: '300px', background: 'radial-gradient(ellipse, rgba(14,165,233,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
-
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(0,255,136,0.08)', border: '1px solid rgba(0,255,136,0.2)', borderRadius: '100px', padding: '0.3rem 1rem', marginBottom: '1.25rem' }}>
-          <span style={{ width: '6px', height: '6px', background: '#00ff88', borderRadius: '50%', display: 'inline-block' }} />
-          <span style={{ color: '#00ff88', fontSize: '0.8rem', fontWeight: 600, fontFamily: 'JetBrains Mono, monospace' }}>Last Updated: April 10, 2026</span>
+    <Layout
+      title="Privacy Policy | TheTechGenAI"
+      description="Privacy Policy for TheTechGenAI — how we collect, use and protect your data."
+      canonical="https://thetechgenai.com/privacy-policy"
+    >
+      <article style={{ maxWidth: '780px', margin: '0 auto', padding: '3rem 1.5rem 5rem' }}>
+        <div style={{ marginBottom: '2.5rem' }}>
+          <span style={{ color: '#0ea5e9', fontSize: '0.8rem', fontWeight: 600, fontFamily: 'JetBrains Mono, monospace' }}>Legal</span>
+          <h1 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', color: '#f1f5f9', lineHeight: 1.2, margin: '0.5rem 0 0.5rem' }}>
+            Privacy Policy
+          </h1>
+          <p style={{ color: '#475569', fontSize: '0.9rem' }}>Last updated: April 2026</p>
         </div>
 
-        <h1 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 'clamp(1.8rem, 5vw, 3rem)', lineHeight: 1.1, color: '#f1f5f9', marginBottom: '1rem' }}>
-          Privacy{' '}
-          <span style={{ background: 'linear-gradient(135deg, #0ea5e9, #00ff88)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-            Policy
-          </span>
-        </h1>
-        <p style={{ color: '#64748b', fontSize: '1rem', lineHeight: 1.7 }}>
-          This Privacy Policy explains how TheTechGenAI collects, uses, and protects your information when you visit thetechgenai.com.
-        </p>
-      </section>
+        <div className="article-content" style={{ color: '#94a3b8', lineHeight: 1.8, fontSize: '0.95rem' }}>
 
-      {/* Sections */}
-      <section style={{ maxWidth: '800px', margin: '0 auto', padding: '0 1.5rem 4rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-        {sections.map((section, i) => (
-          <div key={i} style={{ background: '#0d1117', borderRadius: '16px', padding: '1.75rem 2rem', border: '1px solid #1e2a38' }}>
-            <h2 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '1.1rem', color: section.color, marginBottom: '1rem' }}>
-              {i + 1}. {section.title}
-            </h2>
-            {section.content}
-          </div>
-        ))}
+          <p>Welcome to <strong style={{ color: '#f1f5f9' }}>TheTechGenAI</strong> ("we", "our", or "us"), operated by <strong style={{ color: '#f1f5f9' }}>Piyush Goel</strong>, based in India. We operate the website <strong style={{ color: '#f1f5f9' }}>thetechgenai.com</strong>.</p>
 
-        {/* Contact box */}
-        <div style={{ background: 'linear-gradient(135deg, rgba(14,165,233,0.08), rgba(0,255,136,0.05))', borderRadius: '16px', padding: '1.75rem 2rem', border: '1px solid rgba(14,165,233,0.15)' }}>
-          <h2 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '1.1rem', color: '#f1f5f9', marginBottom: '0.75rem' }}>Contact Us</h2>
-          <p style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: 1.8 }}>
-            If you have any questions about this Privacy Policy, contact us at{' '}
-            <a href="mailto:contact@thetechgenai.com" style={{ color: '#0ea5e9' }}>contact@thetechgenai.com</a>
-          </p>
+          <p>This Privacy Policy explains how we collect, use, and protect information when you visit our website or use our digital services. By using our website, you agree to the terms of this policy.</p>
+
+          <h2 style={{ color: '#f1f5f9', fontFamily: 'Syne, sans-serif', fontSize: '1.2rem', marginTop: '2rem', marginBottom: '0.75rem' }}>1. Information We Collect</h2>
+          <p>We may collect the following types of information:</p>
+          <ul style={{ paddingLeft: '1.5rem' }}>
+            <li><strong style={{ color: '#f1f5f9' }}>Contact Information:</strong> When you fill out our contact form, we collect your name, email address, phone number, and project details. This information is used solely to respond to your enquiry.</li>
+            <li><strong style={{ color: '#f1f5f9' }}>Usage Data:</strong> We collect anonymous data about how visitors use our website, including pages visited, time on site, and device information, through Google Analytics.</li>
+            <li><strong style={{ color: '#f1f5f9' }}>Cookies:</strong> Our website uses cookies to improve your experience and serve relevant advertisements through Google AdSense.</li>
+          </ul>
+
+          <h2 style={{ color: '#f1f5f9', fontFamily: 'Syne, sans-serif', fontSize: '1.2rem', marginTop: '2rem', marginBottom: '0.75rem' }}>2. How We Use Your Information</h2>
+          <p>We use the information we collect to:</p>
+          <ul style={{ paddingLeft: '1.5rem' }}>
+            <li>Respond to your enquiries and provide digital services</li>
+            <li>Improve our website content and user experience</li>
+            <li>Analyse website traffic and performance via Google Analytics</li>
+            <li>Display relevant advertisements via Google AdSense</li>
+            <li>Contact you regarding your project or service request</li>
+          </ul>
+
+          <h2 style={{ color: '#f1f5f9', fontFamily: 'Syne, sans-serif', fontSize: '1.2rem', marginTop: '2rem', marginBottom: '0.75rem' }}>3. Google AdSense and Advertising</h2>
+          <p>We use Google AdSense to display advertisements on our website. Google AdSense may use cookies and web beacons to serve ads based on your prior visits to our website or other websites. Google's use of advertising cookies enables it and its partners to serve ads based on your visit to our site and/or other sites on the internet.</p>
+          <p>You may opt out of personalised advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" style={{ color: '#0ea5e9' }}>Google Ads Settings</a> or <a href="https://www.aboutads.info" target="_blank" rel="noopener noreferrer" style={{ color: '#0ea5e9' }}>aboutads.info</a>.</p>
+
+          <h2 style={{ color: '#f1f5f9', fontFamily: 'Syne, sans-serif', fontSize: '1.2rem', marginTop: '2rem', marginBottom: '0.75rem' }}>4. Google Analytics</h2>
+          <p>We use Google Analytics to understand how visitors interact with our website. Google Analytics collects information such as your IP address, browser type, pages visited, and time spent on our site. This data is anonymised and used only for improving our website. You can opt out by installing the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" style={{ color: '#0ea5e9' }}>Google Analytics Opt-out Browser Add-on</a>.</p>
+
+          <h2 style={{ color: '#f1f5f9', fontFamily: 'Syne, sans-serif', fontSize: '1.2rem', marginTop: '2rem', marginBottom: '0.75rem' }}>5. Cookies</h2>
+          <p>Our website uses cookies to enhance your browsing experience. Cookies are small text files stored on your device. We use:</p>
+          <ul style={{ paddingLeft: '1.5rem' }}>
+            <li><strong style={{ color: '#f1f5f9' }}>Essential Cookies:</strong> Required for the website to function properly.</li>
+            <li><strong style={{ color: '#f1f5f9' }}>Analytics Cookies:</strong> Used by Google Analytics to track anonymous usage data.</li>
+            <li><strong style={{ color: '#f1f5f9' }}>Advertising Cookies:</strong> Used by Google AdSense to show relevant advertisements.</li>
+          </ul>
+          <p>You can control cookies through your browser settings. Disabling cookies may affect the functionality of some parts of our website.</p>
+
+          <h2 style={{ color: '#f1f5f9', fontFamily: 'Syne, sans-serif', fontSize: '1.2rem', marginTop: '2rem', marginBottom: '0.75rem' }}>6. Third-Party Services</h2>
+          <p>We use the following third-party services that may collect data:</p>
+          <ul style={{ paddingLeft: '1.5rem' }}>
+            <li><strong style={{ color: '#f1f5f9' }}>Google Analytics</strong> — Website analytics</li>
+            <li><strong style={{ color: '#f1f5f9' }}>Google AdSense</strong> — Advertising</li>
+            <li><strong style={{ color: '#f1f5f9' }}>Formspree</strong> — Contact form processing</li>
+            <li><strong style={{ color: '#f1f5f9' }}>Cloudflare</strong> — Website hosting and security</li>
+            <li><strong style={{ color: '#f1f5f9' }}>Unsplash</strong> — Stock photography</li>
+          </ul>
+          <p>Each of these services has its own privacy policy governing how they use data.</p>
+
+          <h2 style={{ color: '#f1f5f9', fontFamily: 'Syne, sans-serif', fontSize: '1.2rem', marginTop: '2rem', marginBottom: '0.75rem' }}>7. Data Sharing</h2>
+          <p>We do not sell, trade, or rent your personal information to third parties. We may share information only:</p>
+          <ul style={{ paddingLeft: '1.5rem' }}>
+            <li>With service providers who assist us in operating our website</li>
+            <li>When required by law or to protect our legal rights</li>
+            <li>With your explicit consent</li>
+          </ul>
+
+          <h2 style={{ color: '#f1f5f9', fontFamily: 'Syne, sans-serif', fontSize: '1.2rem', marginTop: '2rem', marginBottom: '0.75rem' }}>8. Data Security</h2>
+          <p>We take reasonable precautions to protect your personal information. Our website is hosted on Cloudflare with SSL encryption. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.</p>
+
+          <h2 style={{ color: '#f1f5f9', fontFamily: 'Syne, sans-serif', fontSize: '1.2rem', marginTop: '2rem', marginBottom: '0.75rem' }}>9. Your Rights</h2>
+          <p>You have the right to:</p>
+          <ul style={{ paddingLeft: '1.5rem' }}>
+            <li>Request access to the personal data we hold about you</li>
+            <li>Request correction or deletion of your personal data</li>
+            <li>Opt out of marketing communications at any time</li>
+            <li>Withdraw consent where processing is based on consent</li>
+          </ul>
+          <p>To exercise these rights, contact us via WhatsApp at <strong style={{ color: '#f1f5f9' }}>+91 98704 05692</strong> or through our <Link href="/contact" style={{ color: '#0ea5e9' }}>contact page</Link>.</p>
+
+          <h2 style={{ color: '#f1f5f9', fontFamily: 'Syne, sans-serif', fontSize: '1.2rem', marginTop: '2rem', marginBottom: '0.75rem' }}>10. Children's Privacy</h2>
+          <p>Our website is not directed at children under 13 years of age. We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us immediately.</p>
+
+          <h2 style={{ color: '#f1f5f9', fontFamily: 'Syne, sans-serif', fontSize: '1.2rem', marginTop: '2rem', marginBottom: '0.75rem' }}>11. Changes to This Policy</h2>
+          <p>We may update this Privacy Policy from time to time. We will notify users of significant changes by updating the "Last updated" date at the top of this page. Continued use of our website after changes constitutes acceptance of the updated policy.</p>
+
+          <h2 style={{ color: '#f1f5f9', fontFamily: 'Syne, sans-serif', fontSize: '1.2rem', marginTop: '2rem', marginBottom: '0.75rem' }}>12. Contact Us</h2>
+          <p>If you have any questions about this Privacy Policy, please contact us:</p>
+          <ul style={{ paddingLeft: '1.5rem' }}>
+            <li><strong style={{ color: '#f1f5f9' }}>Website:</strong> thetechgenai.com</li>
+            <li><strong style={{ color: '#f1f5f9' }}>WhatsApp:</strong> +91 98704 05692</li>
+            <li><strong style={{ color: '#f1f5f9' }}>Founder:</strong> Piyush Goel</li>
+            <li><strong style={{ color: '#f1f5f9' }}>Location:</strong> India</li>
+          </ul>
         </div>
-      </section>
+      </article>
     </Layout>
   )
 }
