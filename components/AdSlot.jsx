@@ -1,38 +1,45 @@
-// AdSense Ad Slot Component
-// Replace data-ad-client and data-ad-slot with your real AdSense values after approval
+import { useEffect, useRef } from 'react';
 
 export default function AdSlot({ slot = 'horizontal', className = '' }) {
-  const styles = {
-    horizontal: { width: '100%', minHeight: '90px', maxHeight: '90px' },
-    rectangle: { width: '300px', minHeight: '250px' },
-    vertical: { width: '160px', minHeight: '600px' },
-  }
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+    
+    // Check if script is already added to avoid duplicates on re-renders
+    if (containerRef.current.querySelector('script')) return;
+
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.async = true;
+    script.dataset.cfasync = 'false';
+    script.src = 'https://pl29290402.profitablecpmratenetwork.com/11913838880defd0ff54d22f910990ca/invoke.js';
+
+    containerRef.current.appendChild(script);
+  }, []);
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', margin: '2rem 0', ...styles[slot] }}
-      className={className}>
-      {/* 
-        REPLACE THIS WITH YOUR REAL ADSENSE CODE AFTER APPROVAL:
-        
-        <ins
-          className="adsbygoogle"
-          style={{ display: 'block' }}
-          data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-          data-ad-slot="XXXXXXXXXX"
-          data-ad-format="auto"
-          data-full-width-responsive="true"
-        />
-        
-        Add this script in pages/_document.js:
-        <Script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" />
-      */}
-      <div style={{
-        width: '100%', height: '100%', minHeight: styles[slot].minHeight,
-        background: '#0d1117', border: '1px dashed #1e2a38', borderRadius: '8px',
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-        color: '#475569', fontSize: '0.75rem', fontFamily: 'JetBrains Mono, monospace'
-      }}>
-        Ad Slot — Replace with AdSense code after approval
+    <div 
+      style={{ 
+        display: 'flex', 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        margin: '2rem auto', 
+        width: '100%',
+        maxWidth: '1200px', // Prevent it from getting too large on ultrawide screens
+        aspectRatio: '4 / 1', // 4:1 ratio as requested
+        overflow: 'hidden',
+        background: '#0d1117', // Placeholder background color
+        borderRadius: '8px'
+      }}
+      className={className}
+    >
+      <div 
+        ref={containerRef}
+        id="container-11913838880defd0ff54d22f910990ca" 
+        style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+      >
+        {/* Adsterra script will inject the ad here */}
       </div>
     </div>
   )
