@@ -1,6 +1,6 @@
 import Layout from '../../components/Layout'
 import PostCard from '../../components/PostCard'
-import AdSlot from '../../components/AdSlot'
+
 import { getAllPosts, getPostsByCategory } from '../../lib/posts'
 import Link from 'next/link'
 
@@ -35,7 +35,6 @@ export default function CategoryPage({ posts, category }) {
         </h1>
         <p style={{ color: '#64748b', marginBottom: '2rem' }}>{meta.desc} · {posts.length} articles</p>
 
-        <AdSlot slot="horizontal" />
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '1rem', marginTop: '2rem' }}>
           {posts.map(post => <PostCard key={post.slug} post={post} featured />)}

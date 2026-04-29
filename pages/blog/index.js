@@ -1,6 +1,6 @@
 import Layout from '../../components/Layout'
 import PostCard from '../../components/PostCard'
-import AdSlot from '../../components/AdSlot'
+
 import { getAllPosts } from '../../lib/posts'
 
 export default function Blog({ posts }) {
@@ -13,7 +13,7 @@ export default function Blog({ posts }) {
           </h1>
           <p style={{ color: '#64748b' }}>{posts.length} articles on AI, Tech, Gadgets & more</p>
         </div>
-        <AdSlot slot="horizontal" />
+
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '1rem', marginTop: '2rem' }}>
           {posts.map(post => <PostCard key={post.slug} post={post} />)}
         </div>
