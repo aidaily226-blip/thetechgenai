@@ -38,39 +38,260 @@ export default function Home({ posts }) {
   return (
     <Layout>
 
+      <style>{`
+        /* ── HERO GRID ── */
+        .hero-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 3rem;
+          align-items: center;
+        }
+        @media (max-width: 768px) {
+          .hero-grid {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+          }
+        }
+
+        /* ── STATS GRID ── */
+        .stats-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 1rem;
+        }
+        @media (max-width: 480px) {
+          .stats-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
+        /* ── SERVICES GRID ── */
+        .services-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1rem;
+        }
+        @media (max-width: 768px) {
+          .services-grid {
+            grid-template-columns: 1fr 1fr;
+          }
+        }
+        @media (max-width: 400px) {
+          .services-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        /* ── CONTACT BAR ── */
+        .contact-bar-inner {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          gap: 1rem;
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+        .contact-bar-links {
+          display: flex;
+          align-items: center;
+          gap: 1.5rem;
+          flex-wrap: wrap;
+        }
+        @media (max-width: 600px) {
+          .contact-bar-links {
+            gap: 0.75rem;
+          }
+          .contact-bar-inner {
+            justify-content: center;
+            text-align: center;
+          }
+        }
+
+        /* ── CATEGORY PILLS ── */
+        .category-pills {
+          display: flex;
+          gap: 0.5rem;
+          flex-wrap: wrap;
+        }
+
+        /* ── BLOG FEATURED GRID ── */
+        .home-latest-grid {
+          display: grid;
+          grid-template-columns: 1.4fr 1fr;
+          gap: 1.5rem;
+        }
+        @media (max-width: 768px) {
+          .home-latest-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        /* ── SIDE POSTS ── */
+        .home-side-posts {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+        .home-side-card {
+          display: flex;
+          gap: 0;
+          background: #0d1117;
+          border-radius: 12px;
+          overflow: hidden;
+          border: 1px solid #1e2a38;
+        }
+        .home-side-img {
+          width: 100px;
+          min-width: 100px;
+          height: 80px;
+          overflow: hidden;
+          flex-shrink: 0;
+        }
+        @media (max-width: 400px) {
+          .home-side-img {
+            width: 80px;
+            min-width: 80px;
+          }
+        }
+
+        /* ── MORE POSTS GRID ── */
+        .home-more-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1.25rem;
+        }
+        @media (max-width: 900px) {
+          .home-more-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+        @media (max-width: 560px) {
+          .home-more-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        /* ── CTA BUTTONS ── */
+        .cta-buttons {
+          display: flex;
+          gap: 1rem;
+          flex-wrap: wrap;
+          margin-bottom: 2.5rem;
+        }
+        @media (max-width: 480px) {
+          .cta-buttons {
+            flex-direction: column;
+          }
+          .cta-buttons a {
+            text-align: center;
+          }
+        }
+
+        /* ── AGENCY CTA BUTTONS ── */
+        .agency-cta-buttons {
+          display: flex;
+          gap: 1rem;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+        @media (max-width: 480px) {
+          .agency-cta-buttons {
+            flex-direction: column;
+            align-items: stretch;
+          }
+          .agency-cta-buttons a {
+            text-align: center;
+          }
+        }
+
+        /* ── BLOG SECTION HEADER ── */
+        .blog-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 0.5rem;
+          flex-wrap: wrap;
+          gap: 0.75rem;
+        }
+
+        /* ── HERO PADDING ── */
+        .hero-section {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 4rem 1.5rem 3rem;
+          position: relative;
+        }
+        @media (max-width: 480px) {
+          .hero-section {
+            padding: 2rem 1rem 2rem;
+          }
+        }
+
+        /* ── GENERAL SECTION ── */
+        .section-pad {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 1.5rem 3rem;
+        }
+        @media (max-width: 480px) {
+          .section-pad {
+            padding: 0 1rem 2rem;
+          }
+        }
+
+        /* ── HEADLINE SIZE ── */
+        .hero-headline {
+          font-family: 'Syne', sans-serif;
+          font-weight: 800;
+          font-size: clamp(1.6rem, 5vw, 3.2rem);
+          line-height: 1.1;
+          color: #f1f5f9;
+          margin-bottom: 1.25rem;
+        }
+        .hero-sub {
+          font-size: clamp(1rem, 2.5vw, 1.8rem);
+          color: #475569;
+          font-weight: 600;
+        }
+
+        /* ── CARD HOVER ── */
+        .card-hover {
+          transition: border-color 0.2s, transform 0.2s;
+        }
+        .card-hover:hover {
+          border-color: #0ea5e9 !important;
+          transform: translateY(-2px);
+        }
+      `}</style>
+
       {/* ── HERO ── */}
-      <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '4rem 1.5rem 3rem', position: 'relative' }}>
-        {/* Glow */}
+      <section className="hero-section">
         <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '800px', height: '400px', background: 'radial-gradient(ellipse, rgba(14,165,233,0.07) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center' }}>
+        <div className="hero-grid">
 
           {/* LEFT — Text */}
           <div>
-            {/* Badge */}
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(14,165,233,0.08)', border: '1px solid rgba(14,165,233,0.2)', borderRadius: '100px', padding: '0.3rem 1rem', marginBottom: '1.5rem' }}>
               <span style={{ width: '6px', height: '6px', background: '#0ea5e9', borderRadius: '50%', display: 'inline-block' }} />
               <span style={{ color: '#0ea5e9', fontSize: '0.78rem', fontWeight: 600, fontFamily: 'JetBrains Mono, monospace' }}>AI Agency + Tech Blog</span>
             </div>
 
-            {/* Headline */}
-            <h1 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 'clamp(2rem, 4vw, 3.2rem)', lineHeight: 1.1, color: '#f1f5f9', marginBottom: '1.25rem' }}>
+            <h1 className="hero-headline">
               We Build AI-Powered<br />
               <span style={{ background: 'linear-gradient(135deg, #0ea5e9, #00ff88)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                 Digital Solutions
               </span>
               <br />
-              <span style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.8rem)', color: '#475569', fontWeight: 600 }}>
-                & Cover Daily Tech News
-              </span>
+              <span className="hero-sub">& Cover Daily Tech News</span>
             </h1>
 
             <p style={{ color: '#64748b', fontSize: '1rem', lineHeight: 1.8, marginBottom: '2rem', maxWidth: '480px' }}>
               TheTechGenAI is a digital agency building AI-driven websites for restaurants, hotels and businesses — and a daily tech blog covering AI news, gadgets and ways to earn online.
             </p>
 
-            {/* CTAs */}
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '2.5rem' }}>
+            <div className="cta-buttons">
               <Link href="/contact" style={{ padding: '0.85rem 1.75rem', background: 'linear-gradient(135deg, #0ea5e9, #0284c7)', borderRadius: '8px', color: 'white', fontWeight: 700, textDecoration: 'none', fontSize: '0.95rem', fontFamily: 'Syne, sans-serif' }}>
                 Get Free Quote →
               </Link>
@@ -79,8 +300,7 @@ export default function Home({ posts }) {
               </Link>
             </div>
 
-            {/* Stats */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1rem' }}>
+            <div className="stats-grid">
               {stats.map(s => (
                 <div key={s.label} style={{ textAlign: 'center', background: '#0d1117', border: '1px solid #1e2a38', borderRadius: '10px', padding: '0.75rem 0.5rem' }}>
                   <p style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '1.3rem', color: '#0ea5e9', marginBottom: '0.1rem' }}>{s.number}</p>
@@ -91,8 +311,8 @@ export default function Home({ posts }) {
           </div>
 
           {/* RIGHT — Services cards */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-            {services.map((s, i) => (
+          <div className="services-grid">
+            {services.map((s) => (
               <Link key={s.title} href="/services" style={{ textDecoration: 'none' }}>
                 <div className="card-hover" style={{ background: '#0d1117', border: '1px solid #1e2a38', borderRadius: '14px', padding: '1.25rem', height: '100%' }}>
                   <div style={{ fontSize: '1.75rem', marginBottom: '0.6rem' }}>{s.icon}</div>
@@ -107,8 +327,8 @@ export default function Home({ posts }) {
 
       {/* ── CONTACT BAR ── */}
       <div style={{ background: '#0d1117', borderTop: '1px solid #1e2a38', borderBottom: '1px solid #1e2a38', padding: '0.85rem 1.5rem' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
+        <div className="contact-bar-inner">
+          <div className="contact-bar-links">
             <span style={{ color: '#475569', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
               <span>📧</span> info@thetechgenai.com
             </span>
@@ -129,7 +349,7 @@ export default function Home({ posts }) {
 
       {/* ── BLOG SECTION HEADER ── */}
       <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '3rem 1.5rem 1rem' }}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+        <div className="blog-header">
           <div>
             <p style={{ color: '#0ea5e9', fontSize: '0.78rem', fontWeight: 600, fontFamily: 'JetBrains Mono, monospace', marginBottom: '0.3rem' }}>Our Tech Blog</p>
             <h2 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '1.6rem', color: '#f1f5f9' }}>
@@ -144,7 +364,7 @@ export default function Home({ posts }) {
 
       {/* ── CATEGORY PILLS ── */}
       <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem 1.5rem' }}>
-        <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+        <div className="category-pills">
           {[
             { href: '/blog', label: 'All', active: true },
             { href: '/category/ai-news', label: '🤖 AI News' },
@@ -154,7 +374,7 @@ export default function Home({ posts }) {
             { href: '/category/make-money', label: '💰 Make Money' },
           ].map(c => (
             <Link key={c.href} href={c.href}
-              style={{ padding: '0.35rem 0.9rem', background: c.active ? 'linear-gradient(135deg, #0ea5e9, #0284c7)' : '#0d1117', border: c.active ? 'none' : '1px solid #1e2a38', borderRadius: '100px', color: c.active ? 'white' : '#64748b', textDecoration: 'none', fontSize: '0.8rem', fontWeight: 600 }}>
+              style={{ padding: '0.35rem 0.9rem', background: c.active ? 'linear-gradient(135deg, #0ea5e9, #0284c7)' : '#0d1117', border: c.active ? 'none' : '1px solid #1e2a38', borderRadius: '100px', color: c.active ? 'white' : '#64748b', textDecoration: 'none', fontSize: '0.8rem', fontWeight: 600, whiteSpace: 'nowrap' }}>
               {c.label}
             </Link>
           ))}
@@ -163,12 +383,12 @@ export default function Home({ posts }) {
 
       {/* ── FEATURED + SIDE POSTS ── */}
       {posts.length > 0 && (
-        <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem 3rem' }}>
+        <section className="section-pad">
           <div className="home-latest-grid">
             {latestPost && (
               <Link href={`/blog/${latestPost.slug}`} style={{ textDecoration: 'none' }}>
-                <article className="card-hover" style={{ background: '#0d1117', borderRadius: '16px', overflow: 'hidden', height: '100%' }}>
-                  <div style={{ height: '280px', overflow: 'hidden', position: 'relative' }}>
+                <article className="card-hover" style={{ background: '#0d1117', borderRadius: '16px', overflow: 'hidden', height: '100%', border: '1px solid #1e2a38' }}>
+                  <div style={{ height: '240px', overflow: 'hidden', position: 'relative' }}>
                     {latestPost.image ? (
                       <img src={latestPost.image} alt={latestPost.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     ) : (
@@ -182,7 +402,7 @@ export default function Home({ posts }) {
                       <span className={getColors(latestPost.category).badge} style={{ padding: '0.25rem 0.75rem', borderRadius: '4px', fontSize: '0.7rem', fontWeight: 600, textTransform: 'uppercase' }}>
                         {latestPost.category}
                       </span>
-                      <h2 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)', color: '#f1f5f9', lineHeight: 1.3, marginTop: '0.75rem', wordBreak: 'break-word' }}>
+                      <h2 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 'clamp(1rem, 2.5vw, 1.5rem)', color: '#f1f5f9', lineHeight: 1.3, marginTop: '0.75rem', wordBreak: 'break-word' }}>
                         {latestPost.title}
                       </h2>
                     </div>
@@ -230,7 +450,7 @@ export default function Home({ posts }) {
 
       {/* ── MORE POSTS ── */}
       {morePosts.length > 0 && (
-        <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem 3rem' }}>
+        <section className="section-pad">
           <h2 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '1.3rem', color: '#f1f5f9', marginBottom: '1.5rem' }}>
             <span style={{ color: '#0ea5e9' }}>More</span> Posts
           </h2>
@@ -249,13 +469,13 @@ export default function Home({ posts }) {
       <section style={{ background: 'linear-gradient(135deg, #0d1117, #080d14)', borderTop: '1px solid #1e2a38', padding: '4rem 1.5rem' }}>
         <div style={{ maxWidth: '700px', margin: '0 auto', textAlign: 'center' }}>
           <p style={{ color: '#0ea5e9', fontSize: '0.78rem', fontWeight: 600, fontFamily: 'JetBrains Mono, monospace', marginBottom: '0.75rem' }}>Digital Agency Services</p>
-          <h2 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 'clamp(1.5rem, 4vw, 2.2rem)', color: '#f1f5f9', marginBottom: '1rem', lineHeight: 1.2 }}>
+          <h2 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 'clamp(1.4rem, 4vw, 2.2rem)', color: '#f1f5f9', marginBottom: '1rem', lineHeight: 1.2 }}>
             Need a Website or Digital Marketing<br />for Your Business?
           </h2>
           <p style={{ color: '#64748b', fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '2rem' }}>
             TheTechGenAI builds AI-powered websites for restaurants, hotels, and businesses across India. Fast delivery. Affordable pricing. Free consultation.
           </p>
-          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <div className="agency-cta-buttons">
             <a href="https://wa.me/919870405692?text=Hi%20Piyush!%20I%20need%20a%20website%20for%20my%20business."
               target="_blank" rel="noopener noreferrer"
               style={{ padding: '0.85rem 1.75rem', background: 'rgba(34,197,94,0.1)', border: '1px solid rgba(34,197,94,0.3)', borderRadius: '8px', color: '#22c55e', fontWeight: 700, textDecoration: 'none', fontSize: '0.95rem' }}>
