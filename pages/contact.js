@@ -14,8 +14,8 @@ export default function Contact() {
     e.preventDefault()
     setStatus('sending')
     try {
-      // ⚠️ Replace YOUR_FORM_ID below with ID from formspree.io
-      const res = await fetch('https://formspree.io/f/xlgawabl', {
+      // Replace YOUR_FORM_ID with your Formspree ID from formspree.io
+      const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -40,82 +40,111 @@ export default function Contact() {
   }
 
   const input = {
-    width: '100%', background: '#080d14', border: '1px solid #1e2a38',
-    borderRadius: '8px', padding: '0.75rem 1rem', color: '#f1f5f9',
-    fontSize: '0.9rem', outline: 'none', boxSizing: 'border-box', fontFamily: 'inherit',
+    width: '100%',
+    background: '#080d14',
+    border: '1px solid #1e2a38',
+    borderRadius: '8px',
+    padding: '0.75rem 1rem',
+    color: '#f1f5f9',
+    fontSize: '0.9rem',
+    outline: 'none',
+    boxSizing: 'border-box',
+    fontFamily: 'inherit',
   }
+
   const label = {
-    color: '#475569', fontSize: '0.74rem', fontWeight: 700, display: 'block',
-    marginBottom: '0.4rem', textTransform: 'uppercase', letterSpacing: '0.05em',
+    color: '#475569',
+    fontSize: '0.74rem',
+    fontWeight: 700,
+    display: 'block',
+    marginBottom: '0.4rem',
+    textTransform: 'uppercase',
+    letterSpacing: '0.05em',
   }
 
   return (
     <Layout
       title="Contact Us — Get a Free Quote | TheTechGenAI"
-      description="Contact Piyush Goel at TheTechGenAI for AI websites, digital marketing, restaurant sites and business solutions. Free consultation."
+      description="Contact Piyush Goel at TheTechGenAI for AI websites, digital marketing and business solutions. Free consultation. WhatsApp: +91 98704 05692"
       canonical="https://thetechgenai.com/contact"
     >
-      <section style={{ maxWidth: '980px', margin: '0 auto', padding: '4rem 1.5rem 6rem' }}>
 
-        {/* Header */}
-        <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(14,165,233,0.08)', border: '1px solid rgba(14,165,233,0.2)', borderRadius: '100px', padding: '0.3rem 1rem', marginBottom: '1.25rem' }}>
-            <span style={{ width: '6px', height: '6px', background: '#0ea5e9', borderRadius: '50%', display: 'inline-block' }} />
-            <span style={{ color: '#0ea5e9', fontSize: '0.8rem', fontWeight: 600, fontFamily: 'JetBrains Mono, monospace' }}>Free Consultation</span>
-          </div>
-          <h1 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 'clamp(2rem, 5vw, 3rem)', color: '#f1f5f9', lineHeight: 1.1, marginBottom: '1rem' }}>
-            Let's Build Something<br />
-            <span style={{ background: 'linear-gradient(135deg, #0ea5e9, #00ff88)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Great Together</span>
-          </h1>
-          <p style={{ color: '#64748b', fontSize: '1rem', maxWidth: '480px', margin: '0 auto', lineHeight: 1.7 }}>
-            Fill the form below or WhatsApp us directly. We reply within 24 hours with a free quote.
-          </p>
+      {/* Hero */}
+      <section style={{ maxWidth: '1000px', margin: '0 auto', padding: '4rem 1.5rem 3rem', textAlign: 'center', position: 'relative' }}>
+        <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '600px', height: '300px', background: 'radial-gradient(ellipse, rgba(14,165,233,0.07) 0%, transparent 70%)', pointerEvents: 'none' }} />
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(14,165,233,0.08)', border: '1px solid rgba(14,165,233,0.2)', borderRadius: '100px', padding: '0.3rem 1rem', marginBottom: '1.25rem' }}>
+          <span style={{ width: '6px', height: '6px', background: '#0ea5e9', borderRadius: '50%', display: 'inline-block' }} />
+          <span style={{ color: '#0ea5e9', fontSize: '0.78rem', fontWeight: 600, fontFamily: 'JetBrains Mono, monospace' }}>Free Consultation</span>
         </div>
+        <h1 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 'clamp(2rem, 5vw, 3rem)', color: '#f1f5f9', lineHeight: 1.1, marginBottom: '1rem' }}>
+          Let's Build Something<br />
+          <span style={{ background: 'linear-gradient(135deg, #0ea5e9, #00ff88)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+            Great Together
+          </span>
+        </h1>
+        <p style={{ color: '#64748b', fontSize: '1rem', maxWidth: '480px', margin: '0 auto', lineHeight: 1.8 }}>
+          Fill the form below or WhatsApp us directly. We reply within 24 hours with a free quote — no commitment needed.
+        </p>
+      </section>
 
+      {/* Main Content */}
+      <section style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 1.5rem 5rem' }}>
         <div style={{ display: 'grid', gridTemplateColumns: '300px 1fr', gap: '1.5rem', alignItems: 'start' }}>
 
-          {/* Left — Info */}
+          {/* LEFT — Info Panel */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
 
-            {/* Founder */}
+            {/* Founder Card */}
             <div style={{ background: '#0d1117', border: '1px solid #1e2a38', borderRadius: '16px', padding: '1.5rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.9rem', marginBottom: '1.1rem', paddingBottom: '1.1rem', borderBottom: '1px solid #1e2a38' }}>
-                <div style={{ width: '48px', height: '48px', background: 'linear-gradient(135deg, #0ea5e9, #00ff88)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '1rem', color: '#080d14', flexShrink: 0 }}>PG</div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.9rem', marginBottom: '1.25rem', paddingBottom: '1.25rem', borderBottom: '1px solid #1e2a38' }}>
+                <div style={{ width: '50px', height: '50px', background: 'linear-gradient(135deg, #0ea5e9, #00ff88)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '1rem', color: '#080d14', flexShrink: 0 }}>
+                  PG
+                </div>
                 <div>
-                  <p style={{ color: '#f1f5f9', fontFamily: 'Syne, sans-serif', fontWeight: 700, fontSize: '0.95rem' }}>Piyush Goel</p>
-                  <p style={{ color: '#0ea5e9', fontSize: '0.75rem', fontWeight: 600 }}>Founder, TheTechGenAI</p>
+                  <p style={{ color: '#f1f5f9', fontFamily: 'Syne, sans-serif', fontWeight: 700, fontSize: '0.95rem', marginBottom: '0.1rem' }}>Piyush Goel</p>
+                  <p style={{ color: '#0ea5e9', fontSize: '0.75rem', fontWeight: 600 }}>Founder — TheTechGenAI</p>
                 </div>
               </div>
 
-              {/* WhatsApp button */}
+              {/* WhatsApp — most prominent */}
               <a href="https://wa.me/919870405692?text=Hi%20Piyush!%20I%20visited%20TheTechGenAI%20and%20want%20to%20discuss%20a%20project."
                 target="_blank" rel="noopener noreferrer"
                 style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', background: 'rgba(34,197,94,0.08)', border: '1px solid rgba(34,197,94,0.25)', borderRadius: '10px', padding: '0.85rem 1rem', textDecoration: 'none', marginBottom: '0.85rem' }}>
                 <span style={{ fontSize: '1.3rem' }}>💬</span>
                 <div>
-                  <p style={{ color: '#22c55e', fontSize: '0.72rem', fontWeight: 700, marginBottom: '0.1rem' }}>WHATSAPP — FASTEST REPLY</p>
-                  <p style={{ color: '#94a3b8', fontSize: '0.85rem', fontWeight: 600 }}>+91 98704 05692</p>
+                  <p style={{ color: '#22c55e', fontSize: '0.7rem', fontWeight: 700, marginBottom: '0.1rem', textTransform: 'uppercase', letterSpacing: '0.04em' }}>WhatsApp — Fastest Reply</p>
+                  <p style={{ color: '#94a3b8', fontSize: '0.88rem', fontWeight: 600 }}>+91 98704 05692</p>
+                </div>
+              </a>
+
+              {/* Email */}
+              <a href="mailto:info@thetechgenai.com"
+                style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', background: 'rgba(14,165,233,0.06)', border: '1px solid rgba(14,165,233,0.15)', borderRadius: '10px', padding: '0.75rem 1rem', textDecoration: 'none', marginBottom: '0.75rem' }}>
+                <span style={{ fontSize: '1.1rem' }}>📧</span>
+                <div>
+                  <p style={{ color: '#475569', fontSize: '0.68rem', fontWeight: 700, marginBottom: '0.1rem', textTransform: 'uppercase' }}>Email</p>
+                  <p style={{ color: '#64748b', fontSize: '0.82rem' }}>info@thetechgenai.com</p>
                 </div>
               </a>
 
               {[
                 { icon: '📍', label: 'Location', val: 'India (Global)' },
-                { icon: '⏰', label: 'Response', val: 'Within 24 hours' },
+                { icon: '⏰', label: 'Response Time', val: 'Within 24 hours' },
                 { icon: '🌐', label: 'Website', val: 'thetechgenai.com' },
               ].map(i => (
-                <div key={i.label} style={{ display: 'flex', gap: '0.6rem', marginBottom: '0.65rem' }}>
-                  <span style={{ fontSize: '0.95rem', marginTop: '2px' }}>{i.icon}</span>
+                <div key={i.label} style={{ display: 'flex', gap: '0.6rem', alignItems: 'center', padding: '0.4rem 0', borderBottom: '1px solid #0d1117' }}>
+                  <span style={{ fontSize: '0.95rem', width: '20px', textAlign: 'center' }}>{i.icon}</span>
                   <div>
-                    <p style={{ color: '#334155', fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>{i.label}</p>
+                    <p style={{ color: '#334155', fontSize: '0.67rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>{i.label}</p>
                     <p style={{ color: '#64748b', fontSize: '0.82rem' }}>{i.val}</p>
                   </div>
                 </div>
               ))}
             </div>
 
-            {/* Services we offer */}
+            {/* Services List */}
             <div style={{ background: '#0d1117', border: '1px solid #1e2a38', borderRadius: '16px', padding: '1.5rem' }}>
-              <p style={{ color: '#f1f5f9', fontFamily: 'Syne, sans-serif', fontWeight: 700, fontSize: '0.88rem', marginBottom: '0.85rem' }}>What We Offer</p>
+              <p style={{ color: '#f1f5f9', fontFamily: 'Syne, sans-serif', fontWeight: 700, fontSize: '0.88rem', marginBottom: '1rem' }}>What We Offer</p>
               {[
                 '🌐  AI-Driven Websites',
                 '📈  Digital Marketing & SEO',
@@ -124,7 +153,7 @@ export default function Contact() {
                 '🎨  Brand Identity & Design',
                 '🤖  AI Automation',
               ].map(s => (
-                <p key={s} style={{ color: '#475569', fontSize: '0.82rem', padding: '0.25rem 0' }}>{s}</p>
+                <p key={s} style={{ color: '#475569', fontSize: '0.82rem', padding: '0.28rem 0', borderBottom: '1px solid #0d1117' }}>{s}</p>
               ))}
               <Link href="/services" style={{ display: 'inline-block', marginTop: '0.75rem', color: '#0ea5e9', fontSize: '0.8rem', textDecoration: 'none', fontWeight: 600 }}>
                 View all services →
@@ -132,26 +161,31 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Right — Form */}
+          {/* RIGHT — Form */}
           <div style={{ background: '#0d1117', border: '1px solid #1e2a38', borderRadius: '16px', padding: '2rem' }}>
 
             {status === 'success' ? (
               <div style={{ textAlign: 'center', padding: '4rem 1rem' }}>
                 <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>🎉</div>
-                <h2 style={{ fontFamily: 'Syne, sans-serif', color: '#00ff88', fontWeight: 800, fontSize: '1.5rem', marginBottom: '0.75rem' }}>Message Received!</h2>
-                <p style={{ color: '#64748b', lineHeight: 1.7, marginBottom: '1.5rem' }}>
-                  Thank you for reaching out! Piyush will personally review your message and reply within 24 hours. For faster response, WhatsApp us directly.
+                <h2 style={{ fontFamily: 'Syne, sans-serif', color: '#00ff88', fontWeight: 800, fontSize: '1.5rem', marginBottom: '0.75rem' }}>
+                  Message Received!
+                </h2>
+                <p style={{ color: '#64748b', lineHeight: 1.7, marginBottom: '1.5rem', maxWidth: '350px', margin: '0 auto 1.5rem' }}>
+                  Thank you! Piyush will personally review your message and reply within 24 hours.
                 </p>
                 <a href="https://wa.me/919870405692" target="_blank" rel="noopener noreferrer"
                   style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.75rem 1.5rem', background: 'rgba(34,197,94,0.1)', border: '1px solid rgba(34,197,94,0.3)', borderRadius: '8px', color: '#22c55e', fontWeight: 600, textDecoration: 'none' }}>
-                  💬 Chat on WhatsApp
+                  💬 Chat on WhatsApp Instead
                 </a>
               </div>
             ) : (
               <>
-                <h2 style={{ fontFamily: 'Syne, sans-serif', color: '#f1f5f9', fontWeight: 700, fontSize: '1.15rem', marginBottom: '1.5rem' }}>
+                <h2 style={{ fontFamily: 'Syne, sans-serif', color: '#f1f5f9', fontWeight: 700, fontSize: '1.15rem', marginBottom: '0.25rem' }}>
                   Send Us Your Project Details
                 </h2>
+                <p style={{ color: '#475569', fontSize: '0.82rem', marginBottom: '1.75rem' }}>
+                  Fill in the form and we will get back to you with a free quote.
+                </p>
 
                 <form onSubmit={handleSubmit}>
                   {/* Name + Email */}
@@ -174,7 +208,8 @@ export default function Contact() {
                     </div>
                     <div>
                       <label style={label}>Service Needed *</label>
-                      <select name="service" value={form.service} onChange={handleChange} required style={{ ...input, color: form.service ? '#f1f5f9' : '#475569' }}>
+                      <select name="service" value={form.service} onChange={handleChange} required
+                        style={{ ...input, color: form.service ? '#f1f5f9' : '#475569' }}>
                         <option value="">Choose a service...</option>
                         <option>AI-Driven Website</option>
                         <option>Digital Marketing & SEO</option>
@@ -191,7 +226,8 @@ export default function Contact() {
                   {/* Budget */}
                   <div style={{ marginBottom: '1rem' }}>
                     <label style={label}>Approximate Budget</label>
-                    <select name="budget" value={form.budget} onChange={handleChange} style={{ ...input, color: form.budget ? '#f1f5f9' : '#475569' }}>
+                    <select name="budget" value={form.budget} onChange={handleChange}
+                      style={{ ...input, color: form.budget ? '#f1f5f9' : '#475569' }}>
                       <option value="">Select budget range...</option>
                       <option>Under ₹15,000</option>
                       <option>₹15,000 – ₹30,000</option>
@@ -204,16 +240,18 @@ export default function Contact() {
 
                   {/* Message */}
                   <div style={{ marginBottom: '1.5rem' }}>
-                    <label style={label}>Tell Us About Your Business & Project *</label>
+                    <label style={label}>Tell Us About Your Project *</label>
                     <textarea name="message" value={form.message} onChange={handleChange} required rows={5}
-                      placeholder="Describe your business, what kind of website you need, your target customers, any specific features, and your timeline..."
+                      placeholder="Describe your business, what you need, your target customers, any specific features and your timeline..."
                       style={{ ...input, resize: 'vertical' }} />
                   </div>
 
+                  {/* Error */}
                   {status === 'error' && (
                     <div style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: '8px', padding: '0.75rem 1rem', marginBottom: '1rem' }}>
                       <p style={{ color: '#f87171', fontSize: '0.85rem' }}>
-                        Something went wrong. Please try WhatsApp: <a href="https://wa.me/919870405692" style={{ color: '#22c55e' }}>+91 98704 05692</a>
+                        Something went wrong. Please WhatsApp us:&nbsp;
+                        <a href="https://wa.me/919870405692" style={{ color: '#22c55e', fontWeight: 600 }}>+91 98704 05692</a>
                       </p>
                     </div>
                   )}
@@ -224,7 +262,7 @@ export default function Contact() {
                   </button>
 
                   <p style={{ color: '#334155', fontSize: '0.75rem', textAlign: 'center', marginTop: '0.85rem' }}>
-                    🔒 Your information is private and secure. Or WhatsApp us at +91 98704 05692
+                    🔒 Your information is safe. Or WhatsApp +91 98704 05692
                   </p>
                 </form>
               </>
@@ -232,6 +270,7 @@ export default function Contact() {
           </div>
         </div>
       </section>
+
     </Layout>
   )
 }
