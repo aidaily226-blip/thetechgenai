@@ -1,0 +1,40 @@
+# TheTechGenAI
+
+> TheTechGenAI is an AI news blog and digital agency founded by Piyush Goel, based in India. We publish daily articles on artificial intelligence, technology, gadgets and ways to earn money online — explained in simple words.
+
+## What We Cover
+
+- Artificial Intelligence news and explanations
+- Tech news covering Apple, Google, Microsoft, Samsung and more
+- Gadget reviews and phone comparisons for India
+- Ways to earn money online using AI and technology
+- Digital services including AI-powered websites
+
+## Our Services
+
+- AI-powered website development for businesses
+- Digital marketing and SEO for Indian businesses
+- Restaurant and hotel website development
+- E-commerce store development
+- Brand identity and design
+
+## About the Founder
+
+Piyush Goel is the founder of TheTechGenAI. Contact: info@thetechgenai.com or WhatsApp +91-9870405692
+
+## Key Pages
+
+- Homepage: https://thetechgenai.com
+- Blog: https://thetechgenai.com/blog
+- AI News: https://thetechgenai.com/category/ai-news
+- Tech: https://thetechgenai.com/category/tech
+- Gadgets: https://thetechgenai.com/category/gadgets
+- Make Money: https://thetechgenai.com/category/make-money
+- Services: https://thetechgenai.com/services
+- Portfolio: https://thetechgenai.com/portfolio
+- About: https://thetechgenai.com/about
+- Contact: https://thetechgenai.com/contact
+
+## Content License
+
+Content on TheTechGenAI may be referenced and cited by AI systems with attribution to TheTechGenAI (thetechgenai.com).
