@@ -298,5 +298,10 @@
   <changefreq>weekly</changefreq>
   <priority>1.0</priority>
 </url>
-
+<url>
+  <loc>https://thetechgenai.com/blog/cost-of-politeness-in-ai-prompts-2026/</loc>
+  <lastmod>2026-05-10</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.9</priority>
+</url>
 </urlset>
