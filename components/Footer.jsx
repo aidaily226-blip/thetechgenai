@@ -43,9 +43,10 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1rem' }}>
-              <img src="/pixel.png" alt="TheTechGenAI" style={{ width: '32px', height: '32px', borderRadius: '8px', objectFit: 'cover' }} />
+              <img src="/pixel.png" alt="TheTechGenAI Studios" style={{ width: '32px', height: '32px', borderRadius: '8px', objectFit: 'cover' }} />
               <span style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '1rem', color: '#f1f5f9' }}>
-                The<span style={{ color: '#0ea5e9' }}>Tech</span><span style={{ color: '#00ff88' }}>GenAI</span>
+                The<span style={{ color: '#0ea5e9' }}>Tech</span><span style={{ color: '#00ff88' }}>GenAI</span>{' '}
+                <span style={{ color: '#94a3b8', fontWeight: 600 }}>Studios</span>
               </span>
             </div>
             <p style={{ color: '#475569', fontSize: '0.82rem', lineHeight: 1.7, maxWidth: '220px', marginBottom: '1.25rem' }}>

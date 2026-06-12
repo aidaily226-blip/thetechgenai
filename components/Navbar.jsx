@@ -15,7 +15,6 @@ export default function Navbar() {
   const [mobileBlogOpen, setMobileBlogOpen] = useState(false)
   const dropdownRef = useRef(null)
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     function handleClick(e) {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -48,9 +47,10 @@ export default function Navbar() {
 
           {/* Logo */}
           <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-            <img src="/pixel.png" alt="TheTechGenAI" style={{ width: '36px', height: '36px', borderRadius: '8px', objectFit: 'cover' }} />
+            <img src="/pixel.png" alt="TheTechGenAI Studios" style={{ width: '36px', height: '36px', borderRadius: '8px', objectFit: 'cover' }} />
             <span style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '1.1rem', color: '#f1f5f9', letterSpacing: '-0.02em' }}>
-              The<span style={{ color: '#0ea5e9' }}>Tech</span><span style={{ color: '#00ff88' }}>GenAI</span>
+              The<span style={{ color: '#0ea5e9' }}>Tech</span><span style={{ color: '#00ff88' }}>GenAI</span>{' '}
+              <span style={{ color: '#94a3b8', fontWeight: 600 }}>Studios</span>
             </span>
           </Link>
 
