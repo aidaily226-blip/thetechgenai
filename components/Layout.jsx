@@ -3,10 +3,37 @@ import Navbar from './Navbar'
 import Footer from './Footer'
 
 export default function Layout({ children, title, description, canonical, image }) {
-  const siteName = 'TheTechGenAI'
+  const siteName = 'TheTechGenAI Studios'
   const defaultDesc = 'Your daily source for AI news, tech updates, gadget reviews and making money with technology.'
   const pageTitle = title ? `${title} | ${siteName}` : siteName
   const ogImage = image || 'https://thetechgenai.com/og-image.png'
+
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'TheTechGenAI Studios',
+    url: 'https://thetechgenai.com',
+    logo: 'https://thetechgenai.com/og-image.png',
+    description: defaultDesc,
+    founder: {
+      '@type': 'Person',
+      name: 'Piyush Goel',
+      url: 'https://www.linkedin.com/in/piyush-g-6b9355400/',
+    },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+91-98704-05692',
+      contactType: 'customer service',
+      email: 'info@thetechgenai.com',
+      areaServed: 'IN',
+      availableLanguage: ['English', 'Hindi'],
+    },
+    sameAs: [
+      'https://www.instagram.com/the_tech_gen_ai/',
+      'https://www.facebook.com/profile.php?id=61574284589357',
+      'https://www.linkedin.com/in/piyush-g-6b9355400/',
+    ],
+  }
 
   return (
     <>
@@ -35,12 +62,18 @@ export default function Layout({ children, title, description, canonical, image 
         {/* Canonical */}
         {canonical && <link rel="canonical" href={canonical} />}
 
-        {/* Favicon — use your logo */}
-       <link rel="icon" href="/favicon.ico" sizes="any" />
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-<link rel="manifest" href="/site.webmanifest" />
+        {/* Favicon */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+
+        {/* Organization Schema with Social Links */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
 
         {/* Google Analytics */}
         <script
