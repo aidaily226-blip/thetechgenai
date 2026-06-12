@@ -98,8 +98,8 @@ const techStack = [
 export default function Portfolio() {
   return (
     <Layout
-      title="Portfolio — AI Websites & Digital Projects | TheTechGenAI"
-      description="See our work — AI-powered websites for restaurants, hotels, e-commerce and more. Real projects with real results from TheTechGenAI."
+      title="Portfolio — AI Websites & Digital Projects | TheTechGenAI Studios"
+      description="See our work — AI-powered websites for restaurants, hotels, e-commerce and more. Real projects with real results from TheTechGenAI Studios."
       canonical="https://thetechgenai.com/portfolio"
     >
 

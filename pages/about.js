@@ -31,8 +31,8 @@ const servicesPills = [
 export default function About() {
   return (
     <Layout
-      title="About Us — TheTechGenAI | AI Agency & Tech Blog India"
-      description="TheTechGenAI is founded by Piyush Goel. We build AI-powered websites and handle digital marketing for businesses across India — and publish daily AI and tech news."
+      title="About Us — TheTechGenAI Studios | AI Agency & Tech Blog India"
+      description="TheTechGenAI Studios is founded by Piyush Goel. We build AI-powered websites and handle digital marketing for businesses across India — and publish daily AI and tech news."
       canonical="https://thetechgenai.com/about"
     >
       <style>{`
@@ -66,7 +66,7 @@ export default function About() {
           <div>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(0,255,136,0.08)', border: '1px solid rgba(0,255,136,0.2)', borderRadius: '100px', padding: '0.3rem 1rem', marginBottom: '1.25rem' }}>
               <span style={{ width: '6px', height: '6px', background: '#00ff88', borderRadius: '50%', display: 'inline-block' }} />
-              <span style={{ color: '#00ff88', fontSize: '0.78rem', fontWeight: 600, fontFamily: 'JetBrains Mono, monospace' }}>About TheTechGenAI</span>
+              <span style={{ color: '#00ff88', fontSize: '0.78rem', fontWeight: 600, fontFamily: 'JetBrains Mono, monospace' }}>About TheTechGenAI Studios</span>
             </div>
             <h1 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 'clamp(1.8rem, 4vw, 3rem)', color: '#f1f5f9', lineHeight: 1.1, marginBottom: '1.25rem' }}>
               AI Agency.<br />
@@ -74,7 +74,7 @@ export default function About() {
               <span style={{ fontSize: 'clamp(1rem, 2.5vw, 1.5rem)', color: '#475569' }}>One Platform.</span>
             </h1>
             <p style={{ color: '#64748b', fontSize: '0.92rem', lineHeight: 1.8, marginBottom: '1.25rem' }}>
-              TheTechGenAI is a digital agency and technology media platform founded by <strong style={{ color: '#94a3b8' }}>Piyush Goel</strong>. We build AI-powered websites for restaurants, hotels and businesses across India — and publish daily news on AI, gadgets, and how to earn online with technology.
+              TheTechGenAI Studios is a digital agency and technology media platform founded by <strong style={{ color: '#94a3b8' }}>Piyush Goel</strong>. We build AI-powered websites for restaurants, hotels and businesses across India — and publish daily news on AI, gadgets, and how to earn online with technology.
             </p>
             <p style={{ color: '#64748b', fontSize: '0.92rem', lineHeight: 1.8, marginBottom: '1.75rem' }}>
               Our goal is simple — use the latest AI and web technology to help Indian businesses compete in the digital world, while keeping everyone informed about where technology is heading.
@@ -119,7 +119,7 @@ export default function About() {
                 PG
               </div>
               <h2 style={{ fontFamily: 'Syne, sans-serif', color: '#f1f5f9', fontWeight: 800, fontSize: '1.05rem', marginBottom: '0.2rem' }}>Piyush Goel</h2>
-              <p style={{ color: '#0ea5e9', fontSize: '0.78rem', fontWeight: 600, marginBottom: '1.25rem' }}>Founder — TheTechGenAI</p>
+              <p style={{ color: '#0ea5e9', fontSize: '0.78rem', fontWeight: 600, marginBottom: '1.25rem' }}>Founder — TheTechGenAI Studios</p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
                 <a href="https://wa.me/919870405692" target="_blank" rel="noopener noreferrer"
                   style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', padding: '0.6rem', background: 'rgba(34,197,94,0.08)', border: '1px solid rgba(34,197,94,0.2)', borderRadius: '8px', color: '#22c55e', textDecoration: 'none', fontSize: '0.82rem', fontWeight: 600 }}>
@@ -139,16 +139,16 @@ export default function About() {
             <div>
               <p style={{ color: '#0ea5e9', fontSize: '0.75rem', fontWeight: 600, fontFamily: 'JetBrains Mono, monospace', marginBottom: '0.5rem' }}>Meet the Founder</p>
               <h2 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 'clamp(1.2rem, 3vw, 1.6rem)', color: '#f1f5f9', marginBottom: '1.1rem' }}>
-                The Person Behind <span style={{ color: '#00ff88' }}>TheTechGenAI</span>
+                The Person Behind <span style={{ color: '#00ff88' }}>TheTechGenAI Studios</span>
               </h2>
               <p style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: 1.8, marginBottom: '0.85rem' }}>
-                Piyush Goel is the founder of TheTechGenAI — a platform built on one belief: that AI and technology should be accessible and understandable for every business and every person in India.
+                Piyush Goel is the founder of TheTechGenAI Studios — a platform built on one belief: that AI and technology should be accessible and understandable for every business and every person in India.
               </p>
               <p style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: 1.8, marginBottom: '0.85rem' }}>
-                With a deep passion for AI, web technology, and digital business, Piyush built TheTechGenAI to serve two purposes — help Indian businesses build their online presence using AI-driven websites and digital marketing, and keep the general public informed about where technology is heading.
+                With a deep passion for AI, web technology, and digital business, Piyush built TheTechGenAI Studios to serve two purposes — help Indian businesses build their online presence using AI-driven websites and digital marketing, and keep the general public informed about where technology is heading.
               </p>
               <p style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: 1.8, marginBottom: '1.5rem' }}>
-                Every project at TheTechGenAI is personally overseen by Piyush to ensure quality, timely delivery, and results that actually matter for clients' businesses.
+                Every project at TheTechGenAI Studios is personally overseen by Piyush to ensure quality, timely delivery, and results that actually matter for clients' businesses.
               </p>
               <div className="skills-grid">
                 {skills.map(s => (

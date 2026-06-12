@@ -50,8 +50,8 @@ export default function Contact() {
 
   return (
     <Layout
-      title="Contact Us — Get a Free Quote | TheTechGenAI"
-      description="Contact Piyush Goel at TheTechGenAI for AI websites, digital marketing and business solutions. Free consultation. WhatsApp: +91 98704 05692"
+      title="Contact Us — Get a Free Quote | TheTechGenAI Studios"
+      description="Contact Piyush Goel at TheTechGenAI Studios for AI websites, digital marketing and business solutions. Free consultation. WhatsApp: +91 98704 05692"
       canonical="https://thetechgenai.com/contact"
     >
       <style>{`
@@ -96,7 +96,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p style={{ color: '#f1f5f9', fontFamily: 'Syne, sans-serif', fontWeight: 700, fontSize: '0.95rem' }}>Piyush Goel</p>
-                  <p style={{ color: '#0ea5e9', fontSize: '0.75rem', fontWeight: 600 }}>Founder — TheTechGenAI</p>
+                  <p style={{ color: '#0ea5e9', fontSize: '0.75rem', fontWeight: 600 }}>Founder — TheTechGenAI Studios</p>
                 </div>
               </div>
 

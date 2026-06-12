@@ -76,8 +76,8 @@ const faqs = [
 export default function Services() {
   return (
     <Layout
-      title="Digital Services — AI Websites, Marketing & More | TheTechGenAI"
-      description="TheTechGenAI offers AI-driven websites, digital marketing, restaurant and hotel sites, e-commerce stores and brand identity for businesses across India."
+      title="Digital Services — AI Websites, Marketing & More | TheTechGenAI Studios"
+      description="TheTechGenAI Studios offers AI-driven websites, digital marketing, restaurant and hotel sites, e-commerce stores and brand identity for businesses across India."
       canonical="https://thetechgenai.com/services"
     >
 
