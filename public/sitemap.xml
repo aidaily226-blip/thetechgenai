@@ -180,5 +180,10 @@
   <changefreq>weekly</changefreq>
   <priority>0.9</priority>
 </url>
+<url>
+  <loc>https://thetechgenai.com/blog/surgical-robots-2026-da-vinci-hugo-ai-surgery/</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.9</priority>
+</url>
 
 </urlset>
