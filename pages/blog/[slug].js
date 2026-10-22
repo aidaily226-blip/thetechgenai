@@ -1,5 +1,7 @@
 import Layout from '../../components/Layout'
 import RelatedPosts from '../../components/RelatedPosts'
+import PostSidebar from '../../components/PostSidebar'
+import SearchBar from '../../components/SearchBar'
 import Link from 'next/link'
 import { getAllPosts, getPostBySlug } from '../../lib/posts'
 
@@ -16,13 +18,14 @@ export default function BlogPost({ post, content, allPosts }) {
   const badge = categoryColors[cat] || 'badge-tech'
 
   return (
- <Layout
-  title={post.title}
-  description={post.excerpt}
-  canonical={`https://thetechgenai.com/blog/${post.slug}`}
-  image={post.image}
->
-      <article style={{ maxWidth: '780px', margin: '0 auto', padding: '3rem 1.5rem' }}>
+    <Layout
+      title={post.title}
+      description={post.excerpt}
+      canonical={`https://thetechgenai.com/blog/${post.slug}`}
+      image={post.image}
+    >
+      <div className="post-layout">
+      <article className="post-main">
         <Link href="/blog" style={{ color: '#64748b', textDecoration: 'none', fontSize: '0.9rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem' }}>
           ← Back to all posts
         </Link>
@@ -72,11 +75,13 @@ export default function BlogPost({ post, content, allPosts }) {
           </div>
         )}
 
-        <RelatedPosts
-          currentSlug={post.slug}
-          currentCategory={post.category}
-          allPosts={allPosts}
-        />
+        <div className="related-bottom">
+          <RelatedPosts
+            currentSlug={post.slug}
+            currentCategory={post.category}
+            allPosts={allPosts}
+          />
+        </div>
 
         <div style={{ marginTop: '2rem', textAlign: 'center' }}>
           <Link href="/blog" style={{ padding: '0.75rem 2rem', background: 'linear-gradient(135deg, #0ea5e9, #0284c7)', borderRadius: '8px', color: 'white', fontWeight: 600, textDecoration: 'none' }}>
@@ -84,6 +89,22 @@ export default function BlogPost({ post, content, allPosts }) {
           </Link>
         </div>
       </article>
+      <div className="post-side-wrap">
+        <div style={{ marginBottom: '1.5rem' }}><SearchBar placeholder="Search articles..." /></div>
+        <PostSidebar currentSlug={post.slug} currentCategory={post.category} allPosts={allPosts} />
+      </div>
+      </div>
+      <style jsx global>{`
+        .post-layout { max-width: 1180px; margin: 0 auto; padding: 3rem 1.5rem; display: grid; grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
+        .post-main { min-width: 0; max-width: 780px; width: 100%; margin: 0 auto; }
+        .post-side-wrap { display: none; }
+        @media (min-width: 1000px) {
+          .post-layout { grid-template-columns: minmax(0, 1fr) 300px; }
+          .post-main { margin: 0; }
+          .post-side-wrap { display: block; position: sticky; top: 90px; align-self: start; max-height: calc(100vh - 110px); overflow-y: auto; }
+          .related-bottom { display: none; }
+        }
+      `}</style>
     </Layout>
   )
 }
