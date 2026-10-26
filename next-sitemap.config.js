@@ -5,11 +5,13 @@ module.exports = {
   changefreq: 'weekly',
   priority: 0.7,
   sitemapSize: 5000,
-  exclude: [
-    '/404',
-    '/500',
-    '/api/*',
-  ],
+exclude: [
+  '/blog/\\[slug\\]',
+  '/category/\\[category\\]',
+  '/404',
+  '/500',
+  '/api/*',
+],
   additionalPaths: async (config) => [
     {
       loc: 'https://thetechgenai.com/',
