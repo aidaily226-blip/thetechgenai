@@ -82,7 +82,7 @@ export default function Blog({ posts }) {
     <Layout
       title="Blog - AI News, Tech Updates & Gadget Reviews"
       description="Read the latest AI news, tech updates, gadget reviews and guides to make money with AI tools. Simple explanations, updated regularly."
-      canonical="https://thetechgenai.com/blog"
+      canonical="https://thetechgenai.com/blog/"
     >
       <Head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />

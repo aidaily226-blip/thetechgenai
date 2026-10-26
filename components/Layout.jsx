@@ -43,24 +43,16 @@ export default function Layout({ children, title, description, canonical, image 
     ]
   }
 
-  const websiteSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "TheTechGenAI Studios",
-    "url": "https://thetechgenai.com",
-    "description": defaultDesc,
-    "publisher": {
-      "@type": "Organization",
-      "name": "TheTechGenAI Studios"
-    },
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "https://thetechgenai.com/blog?q={search_term_string}"
-      },
-      "query-input": "required name=search_term_string"
-    }
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "TheTechGenAI Studios",
+  "url": "https://thetechgenai.com",
+  "description": defaultDesc,
+  "publisher": {
+    "@type": "Organization",
+    "name": "TheTechGenAI Studios"
+  }
   }
 
   return (
