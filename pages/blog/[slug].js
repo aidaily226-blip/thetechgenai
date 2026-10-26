@@ -21,7 +21,7 @@ export default function BlogPost({ post, content, allPosts }) {
     <Layout
       title={post.title}
       description={post.excerpt}
-      canonical={`https://thetechgenai.com/blog/${post.slug}`}
+      canonical={`https://thetechgenai.com/blog/${post.slug}/`}
       image={post.image}
     >
       <div className="post-layout">
